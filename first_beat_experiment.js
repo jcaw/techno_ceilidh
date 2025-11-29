@@ -1,0 +1,25 @@
+setCpm(140/4)
+
+stack(
+  sound("bd, hh*8, ~ sd ~ sd")
+    .bank("RolandTR909")
+    .orbit(0)
+    .gain(perlin.range(0.5, 1))
+    .mask("<1 1 1 [1 0]>"),
+  note("c1 c1 c1 [c1 c2]")
+    .sound("sawtooth")
+    .lpf(sine.range(200, 800).slow(8))
+    .lpq(4)
+    .gain(".2 .8 .9 1")
+    .orbit(1)
+    .room(0.5)
+      .roomsize(1)
+      .roomlp(8000)
+      .roomdim(4000),
+  note("c2 <g2 <f2 c1>>".fast(8))
+   .cutoff(sine.range(2000, 400)).resonance(20)
+   .gain(sine.range(0,0.7).slow(16)).delay(0.1)
+   .sound("<sawtooth>")
+   ._scope()
+)
+._scope()
