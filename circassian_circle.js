@@ -8,7 +8,10 @@ let part = 1
 /////////////////////////////////////////////////////
 // CODE BELOW - DO NOT TOUCH
 
-setCpm(54/4)
+setCpm(50/4)
+// TODOs:
+//   - Sweep the bass drum's lpf
+//   - Maybe sweep the bassline
 
 
 // TODO: Nicer kick sound. Thicker, more techno
