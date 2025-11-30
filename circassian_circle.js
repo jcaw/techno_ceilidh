@@ -55,7 +55,14 @@ let bassline = full_notes.s("supersaw").decay(0.3)
   .clip(2)
   .lpf(slider(335, 200, 2000))
   .lpenv(slider(2.0832, 1.2, 6))
-  .gain(0.9)
+  .gain(0.8)
+  // .distort(0.3)
 
-$: bassline
-$: kick
+let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.3)
+
+offset = 4 - 1/2
+$: arrange(
+  [offset,     stack(kick, bassline)],
+  [1/2,        stack(kick, bassline.late(offset), count_in.slow(1/2))],
+  [4294967296, stack(kick, bassline)],
+)

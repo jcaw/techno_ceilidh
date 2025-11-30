@@ -17,6 +17,7 @@ let kick = s("[bd ~ ~]*3*4").bank("RolandTR909")
   .lpenv("2")
   .room(0.1)
   .clip(1)
+  .distort(0.3)
 
 let up     = n("[0 1 2]*3")
 let down   = n("[2 1 0]*3")
@@ -51,12 +52,6 @@ if (part == 1) {
   let E   = up.chord("D").voicing()
   let D   = mixed2.chord("E").voicing()
 
-  let single = [
-    [Fsm, A, Bm, Csm],
-    [Fsm, A, Bm, Csm],
-    [D,   E, Bm, Csm],
-    [D,   E, Bm, Csm],
-  ]
   full_notes = cat(
     [Fsm, A, Bm, Csm],
     [Fsm, A, Bm, Csm],
@@ -69,15 +64,30 @@ if (part == 1) {
   ).transpose(-24)
 }
 
-// TODO: More like a laser sound?
-let bassline = full_notes.s("supersaw").decay(0.2)
+
+let bass_laser = s("supersaw").decay(0.2)
   .struct("[x x x]*3*4").slow(1)
-  .clip(sine.range(0.8, 1.0).slow(8))
+  //.clip(sine.range(0.8, 1.0).slow(8))
   .lpf(sine.range(200, 1200).slow(3))
   .lpenv(sine.range(1.2, 6).slow(4))
-  .gain(0.3)
+  .gain(0.8)
 
-// TODO: Intro (move1*2 I guess - bring in kick before we start)
 
-$: bassline
-$: kick
+// TODO: More like a laser sound?
+let bassline = set(full_notes, bass_laser)
+
+
+let count_in = s("[hh]*3").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.5)
+
+let count_length = 1/4
+let kick_offset  = 2 - count_length
+$: arrange(
+  // Just arpeggios first
+  [2,           bassline],
+  // Bring in the kick
+  [kick_offset, stack(kick, bassline.late(2))],
+  // Count in
+  [count_length,stack(kick, bassline.late(kick_offset), count_in.slow(1/4))],
+  // And go
+  [4294967296,  stack(kick, bassline)],
+)

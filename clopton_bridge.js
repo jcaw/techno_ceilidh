@@ -18,20 +18,12 @@ let kick = s("[bd ~ bd ~ bd ~ bd ~]*4").bank("RolandTR909")
   .room(0.1)
   .clip(1)
 
-let heartbeat = note("c5 ~ ~ c5 ~ ~").sound("square")
-  .room(0.3)
-  .gain(0.2)
-  .slow(1/2)
-  .clip(1/2)
-  .lpf(sine.range(200, 2000).slow(8))
-  .lpenv(slider(0.5, 0.5, 6))
-
 let full_notes
 if (part == 1) {
   // The Grand Hornpipe
   full_notes = cat(
     "g1 g1 g1 d1",
-    "g1 g1 [g1 d1] g1",
+    "c1 g1 [g1 d1] g1",
     "g1 g1 [g1 e1] d1",
     "c1 g1 d1 g1",
   ).note()
@@ -54,6 +46,12 @@ let bassline = full_notes.s("sawtooth").decay(0.8)
   .lpenv(slider(6, 0.5, 6))
   .gain(0.4)
 
-$: bassline
-$: kick
-// $: heartbeat
+
+let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.3)
+
+offset = 2 - 1/4
+$: arrange(
+  [offset,     stack(kick, bassline)],
+  [1/4,        stack(kick, bassline.late(offset), count_in.slow(1/4))],
+  [4294967296, stack(kick, bassline)],
+)

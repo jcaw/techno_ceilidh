@@ -25,7 +25,7 @@ let heartbeat = note("c5 ~ ~ c5 ~ ~").sound("square")
   .gain(0.2)
   .slow(1/2)
   .clip(1/2)
-  .lpf(sine.range(200, 2000).slow(8))
+  .lpf(2000)
   .lpenv(slider(0.5, 0.5, 6))
 
 let full_notes
@@ -59,6 +59,14 @@ let bassline = full_notes.s("supersaw").decay(0.3)
   .lpenv(slider(1.9056, 1.2, 6))
   .gain(0.4)
 
-$: bassline
-$: kick
-$: heartbeat
+
+let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.3)
+
+offset = 2 - 1/2
+$: arrange(
+  [1,          stack(heartbeat)],
+  [1,          stack(heartbeat, kick)],
+  [offset,     stack(kick, bassline, heartbeat)],
+  [1/2,        stack(kick, bassline.late(1 + 1/2), heartbeat, count_in.slow(1/2))],
+  [4294967296, stack(kick, bassline, heartbeat.lpf(sine.range(200, 2000).slow(8)))],
+)

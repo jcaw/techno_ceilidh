@@ -21,8 +21,16 @@ let bassline = note("[~ [g1 g2]]*2").s("supersaw")
   .lpf(slider(372.8, 200, 2000))
   .lpf(sine.range(200, 400).slow(10))
   //.lpenv(slider(3.811, 0.5, 6))
-  .lpenv(slider(sine.range(1.2, 4).slow(4)))
+  // TODO: I guess use a longer period for this honestly]
+  .lpenv(slider(sine.range(1.2, 4).slow(16)))
   .gain(0.9)
 
-$: bassline
-$: kick
+
+let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.5)
+
+
+$: arrange(
+  [6,          stack(kick, bassline)],
+  [2,          stack(kick, bassline, count_in.slow(2))],
+  [4294967296, stack(kick, bassline)],
+)
