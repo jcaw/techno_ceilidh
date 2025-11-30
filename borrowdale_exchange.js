@@ -4,6 +4,8 @@ let part = 1
 // UNCOMMENT PART 2 THEN CLICK "update" TO SWITCH TO PART 2
 // part = 2
 
+// TODO: Make more acid house
+
 
 /////////////////////////////////////////////////////
 // CODE BELOW - DO NOT TOUCH
@@ -31,17 +33,21 @@ if (part == 1) {
   // The Lilting Banshee
   full_notes = cat(
     "a1 g1 e1 g1",
-    "a1 g1 e1 [c1 a1]",
+    "a1 g1 e1 [g1 a1]",
     "a1 g1 e1 g1",
-    "a1 g1 f1 [c1 a1]",
+    "a1 g1 e1 [g1 a1]",
   ).note()
 } else {
   // The Kesh
   full_notes = cat(
-    "a1 a1 g1 g1",
-    "a1 a1 g1 e1",
-    "a1 a1 g1 g1",
-    "e1 a1 a1 g1",
+    "g1 d1 c1 d1",
+    "g1 d1 [c1 g1] [d1 g1]",
+    "g1 d1 c1 d1",
+    "g1 d1 [c1 g1] [d1 g1]",
+    "g1 g1 g1 d1",
+    "g1 g1 [c1 a1] [d1 g1]",
+    "g1 g1 g1 d1",
+    "g1 g1 [c1 a1] [d1 g1]",
   ).note()
 }
 

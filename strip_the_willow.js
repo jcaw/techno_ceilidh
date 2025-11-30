@@ -2,13 +2,13 @@
 let part = 1
 
 // UNCOMMENT PART 2 THEN CLICK "update" TO SWITCH TO PART 2
-part = 2
+// part = 2
 
 
 /////////////////////////////////////////////////////
 // CODE BELOW - DO NOT TOUCH
 
-setCpm(91/8)
+setCpm(80/8)
 
 
 // TODO: Nicer kick sound. Thicker, more techno

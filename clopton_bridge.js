@@ -8,11 +8,11 @@ let part = 1
 /////////////////////////////////////////////////////
 // CODE BELOW - DO NOT TOUCH
 
-setCpm(80/4)
+setCpm(40/4)
 
 
 // TODO: Nicer kick sound. Thicker, more techno
-let kick = s("[bd ~ bd ~ bd ~ bd ~]*2").bank("RolandTR909")
+let kick = s("[bd ~ bd ~ bd ~ bd ~]*4").bank("RolandTR909")
   .lpf(400)
   .lpenv(1.5)
   .room(0.1)
@@ -47,11 +47,11 @@ if (part == 1) {
 
 // TODO: More like a laser sound?
 let bassline = full_notes.s("sawtooth").decay(0.8)
-  .struct("[~ x ~ x ~ x ~ x]*2").slow(1)
+  .struct("[~ x ~ x ~ x ~ x]*4").slow(1)
   .clip(2)
   .lpf(slider(100, 100, 2000))
   //.lpf(sine.segment(1).range(100, 1000).slow(8))
-  .lpenv(slider(6.5, 0.5, 6))
+  .lpenv(slider(6, 0.5, 6))
   .gain(0.4)
 
 $: bassline
