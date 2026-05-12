@@ -38,7 +38,7 @@ if (part == 1) {
     [Em, Em, Em, D_],
     [G_, [G_, C_], [G_, C_], D_],
     [Em, D_, Em, [D_, Bm]],
-    [G_, D_],
+    [Em, D_, G_, D_],
   ).transpose(-24)
 } else {
   // Farewell to Whalley Range

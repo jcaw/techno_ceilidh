@@ -135,7 +135,7 @@ C:
 ```text
 | Em | Em | Em | [Am D7] |
 | [Em G] | [Em G] | [Em G] | [Am Bm] |
-| Em | D | C |
+| Em | Em | D | C |
 | [Em G] | [Em G] | [Em G] | [Am Bm] |
 ```
 
@@ -144,10 +144,10 @@ C:
 The scan is cropped and handwritten in places.
 
 ```text
-| Em | Em | D |
+| Em | Em | Em | D |
 | Em | D | Em | D |
-| D | A | D | A | D |
-| A | D | D | A | [Gm? D] |
+| D | A | D | [A D] |
+| A | D | D | [A Gm? D] |
 ```
 
 ### Chloe's Passion
@@ -157,7 +157,7 @@ The scan is cropped and handwritten in places.
 | Em | Em | Em | D |
 | G | [G/B C] | [G/B C] | D |
 | Em | D | 1: Em | [D Bm] |
-| 2: G | D |
+| Em | D | 2: G | D |
 ```
 
 ### Farewell to Whalley Range
@@ -173,9 +173,9 @@ The scan is cropped and handwritten in places.
 
 ```text
 | Am | G | Em | G |
-| Am | G | Em | G | Am |
+| Am | G | Em | [G Am] |
 | Am | G | Em | G |
-| Am | G | Em | G | Am |
+| Am | G | Em | [G Am] |
 ```
 
 ### The Connaught Man's Rambles
@@ -191,9 +191,9 @@ The scan is cropped and handwritten in places.
 
 ```text
 | G | D | C | D |
-| G | D | C | [G D] | G |
+| G | D | C | [G D G] |
 | G | G | G | D |
-| G | G | C | [Am D] | G |
+| G | G | C | [Am D G] |
 ```
 
 ### The Silver Spear

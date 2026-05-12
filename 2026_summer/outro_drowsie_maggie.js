@@ -16,10 +16,10 @@ let kick = s("[bd ~]*2").bank("RolandTR909")
   .gain(0.92)
 
 let full_notes = cat(
-  "e1 e1 d1",
+  "e1 e1 e1 d1",
   "e1 d1 e1 d1",
-  "d1 a1 d1 a1 d1",
-  "a1 d1 d1 a1 [g1 d1]",
+  "d1 a1 d1 [a1 d1]",
+  "a1 d1 d1 [a1 g1 d1]",
 ).note()
 
 let bassline = full_notes.s("supersaw")
