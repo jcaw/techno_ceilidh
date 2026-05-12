@@ -22,17 +22,21 @@ let kick = s("[bd ~ bd ~]*4").bank("RolandTR909")
 let full_notes
 if (part == 1) {
   // Galopede
-  // TODO: Update to the extracted Galopede chord sequence in chord_sequences.md.
   full_notes = cat(
-    "g1 g1 c1 d1",
-    "g1 g1 d1 g1",
+    "[g1 d1] e1 a1 d1",
+    "[g1 d1] e1 [a1 d1] g1",
+    "[g1 c1] [g1 d1] [g1 c1] d1",
+    "[g1 c1] [g1 d1] [c1 d1] g1",
+    "g1 g1 [g1 c1] d1",
+    "g1 g1 [g1 d1] g1",
   ).note()
 } else {
   // Three Around Three
-  // TODO: Update to the extracted Three Around Three chord sequence in chord_sequences.md.
   full_notes = cat(
-    "g1 c1 c1 d1",
-    "g1 c1 d1 g1",
+    "[g1 d1] [g1 c1] c1 [c1 d1]",
+    "[g1 d1] [g1 c1] d1 g1",
+    "g1 c1 g1 d1",
+    "g1 c1 [c1 d1] g1",
   ).note()
 }
 

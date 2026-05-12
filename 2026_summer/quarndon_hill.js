@@ -16,18 +16,11 @@ let kick = s("[bd ~ ~ bd ~ ~]*4").bank("RolandTR909")
   .gain(0.95)
 
 // Morgan Rattler
-// TODO: Update to the extracted Morgan Rattler chord sequence in chord_sequences.md.
 let full_notes = cat(
   "d1 e1 f#1 [g1 a1]",
   "d1 e1 f#1 [g1 a1]",
-  "d1 e1 f#1 [g1 a1]",
-  "d1 e1 f#1 [g1 a1]",
   "d1 a1 d1 [e1 g1]",
   "d1 a1 b1 [g1 a1]",
-  "d1 a1 d1 [e1 g1]",
-  "d1 a1 b1 [g1 a1]",
-  "d1 e1 f#1 [g1 a1]",
-  "d1 e1 f#1 [g1 a1]",
   "d1 e1 f#1 [g1 a1]",
   "d1 e1 f#1 [g1 a1]",
 ).note()

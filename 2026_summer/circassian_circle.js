@@ -22,27 +22,17 @@ let kick = s("[bd ~ bd ~]*4").bank("RolandTR909")
 let full_notes
 if (part == 1) {
   // The Silver Spear
-  // TODO: Update to the extracted The Silver Spear chord sequence in chord_sequences.md.
   full_notes = cat(
-    "d1 [d1 g1] d1 [d2 g1]",
-    "g1 [d2 d1] [e1 g1] g2",
-    "g1 g1 d1 [d2 g1]",
-    "d1 [d2 g1] [e1 d1] d2",
-    "d2 g1 d2 e1",
-    "d2 g1 [e1 d1] d1",
-    "d2 g1 d2 e1",
-    "d2 g1 [e1 d1] d1",
+    "d1 g1 d1 [g1 a1]",
+    "d1 g1 [e1 d1] [g1 a1]",
+    "d1 g1 d1 [e1 g1 a1]",
+    "d1 g1 [e1 d1] [g1 a1]",
   ).note()
 } else {
   // The Knotted Cord
-  // TODO: Update to the extracted The Knotted Cord chord sequence in chord_sequences.md.
   full_notes = cat(
     "a1 a1 g1 g1",
-    "a1 a1 g1 e1",
-    "a1 a1 g1 g1",
-    "a1 a1 g1 a1",
-    "a1 a1 g1 [g1 e1]",
-    "a1 a1 g1 g1",
+    "a1 a1 g1 [e1 a1]",
     "a1 a1 g1 [g1 e1]",
     "a1 a1 g1 [e1 a1]",
   ).note()

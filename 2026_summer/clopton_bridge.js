@@ -22,7 +22,6 @@ let kick = s("[bd ~ bd ~ bd ~ bd ~]*4").bank("RolandTR909")
 let full_notes
 if (part == 1) {
   // The Grand Hornpipe
-  // TODO: Update to the extracted The Grand Hornpipe chord sequence in chord_sequences.md.
   full_notes = cat(
     "g1 g1 g1 d1",
     "c1 g1 [g1 d1] g1",
@@ -31,12 +30,11 @@ if (part == 1) {
   ).note()
 } else {
   // Sportsman's Hornpipe
-  // TODO: Update to the extracted Sportsman's Hornpipe chord sequence in chord_sequences.md.
   full_notes = cat(
-    "[c1 g1] g1 [c1 g1] a1",
-    "[c1 g1] g1 [g1 d1] a1",
-    "a1 [d1 a1] a1 [d1 a1]",
-    "[a1 c1] [c1 g1] [a1 g1] a1",
+    "c1 g1 g1 [c1 g1 a1]",
+    "c1 g1 [g1 d1] a1",
+    "a1 d1 a1 [a1 d1 a1]",
+    "a1 c1 [c1 g1] [a1 g1 a1]",
   ).note()
 }
 

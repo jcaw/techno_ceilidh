@@ -37,25 +37,19 @@ let heartbeat = note("c5 ~ ~ c5 ~ ~").sound("square")
 let full_notes
 if (part == 1) {
   // The Seven Stars
-  // TODO: Update to the extracted The Seven Stars chord sequence in chord_sequences.md.
   full_notes = cat(
-    "a1 g1 e1 g1",
-    "a1 g1 e1 [g1 a1]",
-    "a1 g1 e1 g1",
-    "a1 g1 e1 [g1 a1]",
+    "d1 [g1 d1] [g1 e1 a1] d1",
+    "[g1 d1] [g1 a1] d1 d1",
+    "[a1 d1] [a1 d1] [e1 a1] [g1 d1]",
+    "[g1 d1] [g1 d1] [g1 a1] d1",
   ).note()
 } else {
   // Dribbles of Brandy
-  // TODO: Update to the extracted Dribbles of Brandy chord sequence in chord_sequences.md.
   full_notes = cat(
-    "g1 d1 c1 d1",
-    "g1 d1 [c1 g1] [d1 g1]",
-    "g1 d1 c1 d1",
-    "g1 d1 [c1 g1] [d1 g1]",
-    "g1 g1 g1 d1",
-    "g1 g1 [c1 a1] [d1 g1]",
-    "g1 g1 g1 d1",
-    "g1 g1 [c1 a1] [d1 g1]",
+    "e1 [g1 d1] b1 e1",
+    "g1 [d1 c1] e1 e1",
+    "e1 d1 [e1 b1] e1",
+    "d1 e1 [c1 e1] e1",
   ).note()
 }
 

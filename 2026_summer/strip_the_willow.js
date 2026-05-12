@@ -27,38 +27,29 @@ let mixed2 = n("[0 2 1]*3")
 let full_notes
 if (part == 1) {
   // Chloe's Passion
-  // TODO: Update to the extracted Chloe's Passion chord sequence in chord_sequences.md.
   let Em = up.chord("Em").voicing()
   let D_ = up.chord("D").voicing()
   let G_ = up.chord("G").voicing()
   let C_ = mixed.chord("C").voicing()
   let Bm = up.chord("Bm").voicing()
 
-  let move1 = [Em, [Em, Em, D_], Em, D_]
-  let move2 = [Em, Em, Em, D_]
-  let move3 = [G_,  G_,  [C_, G_, C_], D_]
   full_notes = cat(
-    move1, move1,
-    move2, move2,
-    move3, move3,
-    [Em, D_, Em, [D_, D_, Bm]],
-    [Em, D_, G_, D_],
+    [Em, D_, Em, D_],
+    [Em, Em, Em, D_],
+    [G_, [G_, C_], [G_, C_], D_],
+    [Em, D_, Em, [D_, Bm]],
+    [G_, D_],
   ).transpose(-24)
 } else {
   // Farewell to Whalley Range
-  // TODO: Update to the extracted Farewell to Whalley Range chord sequence in chord_sequences.md.
   let Fsm = up.chord("F#m").voicing()
   let A   = down.chord("A").voicing()
   let Bm  = up.chord("Bm").voicing()
   let Csm = up.chord("C#m").voicing()
-  let E   = up.chord("D").voicing()
-  let D   = mixed2.chord("E").voicing()
+  let D   = mixed2.chord("D").voicing()
+  let E   = up.chord("E").voicing()
 
   full_notes = cat(
-    [Fsm, A, Bm, Csm],
-    [Fsm, A, Bm, Csm],
-    [D,   E, Bm, Csm],
-    [D,   E, Bm, Csm],
     [Fsm, A, Bm, Csm],
     [Fsm, A, Bm, Csm],
     [D,   E, Bm, Csm],

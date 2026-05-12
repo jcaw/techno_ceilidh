@@ -22,17 +22,25 @@ let kick = s("[bd ~ bd ~ bd ~ bd ~]*4").bank("RolandTR909")
 let full_notes
 if (part == 1) {
   // The Humours of Ennistymon
-  // TODO: Update to the extracted The Humours of Ennistymon chord sequence in chord_sequences.md.
   full_notes = cat(
-    "g1 d1 g1 d1",
-    "d1 d1 d1 g1",
+    "[g1 a1] d1 [g1 a1] d1",
+    "[g1 a1] d1 d1 g1",
+    "d1 d1 a1 d1",
+    "d1 d1 d1 [d1 g1]",
+    "[g1 a1] g1 [a1 d1] d1",
+    "[g1 a1] e1 a1 [d1 g1]",
   ).note()
 } else {
   // The Lark in the Morning
-  // TODO: Update to the extracted The Lark in the Morning chord sequence in chord_sequences.md.
   full_notes = cat(
-    "d1 g1 d1 g1",
-    "d1 g1 d1 a1",
+    "d1 g1 d1 [d1 g1]",
+    "d1 g1 d1 [a1 b1 g1]",
+    "d1 [g1 a1] d1 [a1 b1 g1]",
+    "d1 [g1 d1] [g1 d1] [e1 g1]",
+    "d1 d1 d1 [e1 g1]",
+    "d1 d1 [g1 d1] [e1 g1]",
+    "d1 d1 d1 [e1 g1]",
+    "d1 [a1 d1] [g1 d1] [e1 g1]",
   ).note()
 }
 

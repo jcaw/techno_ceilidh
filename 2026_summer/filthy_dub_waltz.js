@@ -41,6 +41,10 @@ let mixed  = n("[0 0 0]")
 let G_ = mixed.chord("G").voicing().transpose(-12)
 let C_ = mixed.chord("C").voicing()
 let D_ = mixed.chord("D").voicing()
+let Am = mixed.chord("Am").voicing()
+let Em = mixed.chord("Em").voicing()
+let Bm = mixed.chord("Bm").voicing()
+let D7 = mixed.chord("D7").voicing()
 let Dm = up.chord("Dm").voicing()
 let Gm = mixed.chord("Gm").voicing()
 let A_ = down.chord("A").voicing()
@@ -61,25 +65,25 @@ if (part == 1) {
 
   roots = cat(
     "g1", "c1", "d1", "g1",
-    "g1", "[g1 c1]", "d1", "g1",
-    "[g1 d1]", "g1", "d1", "g1",
+    "g1", "c1", "d1", "g1",
+    "d1", "g1", "d1", "g1",
     "d1", "g1", "d1", "g1",
   ).note()
 } else {
   // Dark Island
-  // TODO: Port over extracted chords and roots
   chords = cat(
-    Dm, C_down, Bb, A_,
-    Gm, F_, C_down, A_,
-    Dm, Dm, Bb, A_,
-    Gm, C_down, Dm, A_,
+    // 3/4, one Strudel cycle per bar. Sheet is 32 bars: A A' B A'.
+    Am, Em, C_, G_, G_, Bm, Em, D_,
+    Am, Em, C_, G_, G_, D7, C_, G_,
+    G_, G_, C_, G_, G_, Bm, Em, D7,
+    Am, Em, C_, G_, G_, D7, C_, G_,
   ).transpose(-12)
 
   roots = cat(
-    "d1", "c1", "bb0", "a1",
-    "g1", "f1", "c1", "a1",
-    "d1", "d1", "bb0", "a1",
-    "g1", "c1", "d1", "a1",
+    "a1", "e1", "c1", "g1", "g1", "b0", "e1", "d1",
+    "a1", "e1", "c1", "g1", "g1", "d1", "c1", "g1",
+    "g1", "g1", "c1", "g1", "g1", "b0", "e1", "d1",
+    "a1", "e1", "c1", "g1", "g1", "d1", "c1", "g1",
   ).note()
 }
 

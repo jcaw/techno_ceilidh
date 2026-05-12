@@ -15,8 +15,14 @@ let kick = s("[bd ~]*2").bank("RolandTR909")
   .distort(0.14)
   .gain(0.92)
 
-// TODO: Update to the extracted Drowsy Maggie chord sequence in chord_sequences.md.
-let bassline = note("[~ [g1 g2]]*2").s("supersaw")
+let full_notes = cat(
+  "e1 e1 d1",
+  "e1 d1 e1 d1",
+  "d1 a1 d1 a1 d1",
+  "a1 d1 d1 a1 [g1 d1]",
+).note()
+
+let bassline = full_notes.s("supersaw")
   .decay(0.4)
   .clip(0.8)
   .room(0.4)
