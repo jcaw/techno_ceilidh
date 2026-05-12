@@ -1,0 +1,166 @@
+// Rozsa
+let part = 1
+// part = 2
+
+
+/////////////////////////////////////////////////////
+//    o     o
+//   /|\   /|\
+//   / \   / \
+//      <3
+/////////////////////////////////////////////////////
+
+// 129 BPM, with one Strudel cycle as one 3/4 waltz bar.
+setCpm(129/3)
+
+
+let up     = n("[0 1 2]")
+let down   = n("[2 1 0]")
+let mixed  = n("[0 2 1]")
+
+let G_ = up.chord("G").voicing()
+let C_ = mixed.chord("C").voicing()
+let D_ = down.chord("D").voicing()
+let Dm = up.chord("Dm").voicing()
+let Gm = mixed.chord("Gm").voicing()
+let A_ = down.chord("A").voicing()
+let F_ = up.chord("F").voicing()
+let C_down = down.chord("C").voicing()
+let Bb = mixed.chord("Bb").voicing()
+
+let chords
+let roots
+if (part == 1) {
+  chords = cat(
+    [G_, C_, D_, G_],
+    [G_, [G_, C_], D_, G_],
+    [[G_, D_], G_, D_, G_],
+    [D_, G_, D_, G_],
+  ).transpose(-12)
+
+  roots = cat(
+    "g1 c1 d1 g1",
+    "g1 [g1 c1] d1 g1",
+    "[g1 d1] g1 d1 g1",
+    "d1 g1 d1 g1",
+  ).note()
+} else {
+  chords = cat(
+    [Dm, C_down, Bb, A_],
+    [Gm, F_, C_down, A_],
+    [Dm, Dm, Bb, A_],
+    [Gm, C_down, Dm, A_],
+  ).transpose(-12)
+
+  roots = cat(
+    "d1 c1 bb0 a1",
+    "g1 f1 c1 a1",
+    "d1 d1 bb0 a1",
+    "g1 c1 d1 a1",
+  ).note()
+}
+
+let kick = s("bd ~ ~").bank("RolandTR808")
+  .lpf(125)
+  .lpenv(0.9)
+  .decay(0.72)
+  .clip(0.72)
+  .distort(slider(0.04, 0, 0.3))
+  .room(0.16)
+  .gain(0.82)
+
+let ghost_kick = s("~ ~ bd").bank("RolandTR808")
+  .lpf(105)
+  .lpenv(0.7)
+  .decay(0.32)
+  .clip(0.55)
+  .distort(0.04)
+  .late(1/24)
+  .gain(0.18)
+
+let rim = s("~ sd [~ sd]").bank("RolandTR808")
+  .lpf(1700)
+  .hpf(600)
+  .decay(0.14)
+  .room(0.9)
+  .delay(0.35)
+  .gain(0.32)
+
+let hats = s("~ hh ~").bank("RolandTR808")
+  .hpf(slider(4200, 2500, 6500))
+  .lpf(slider(6400, 4800, 9000))
+  .decay(0.045)
+  .gain(0.09)
+  .room(0.28)
+
+let skank_bite = slider(0.41, 0, 1)
+let skank_voice = s("sawtooth")
+  .struct("~ x x")
+  .decay(0.15 - skank_bite * 0.1)
+  .sustain(0.0)
+  .lpf(sine.range(0.54, 1.46).slow(16).mul(300 + skank_bite * 900))
+  .lpq(3)
+  .clip(0.65)
+  .distort(0.28)
+  .delay(0.45)
+  .room(0.75)
+  .gain(0.28)
+
+let skank = set(chords, skank_voice)
+
+let sub = cat("g1").note().s("sine")
+  .struct("x ~ [~ x]")
+  .decay(0.85)
+  .sustain(0.28)
+  .lpf(slider(115, 65, 260))
+  .lpenv(sine.range(0.6, 1.8).slow(12))
+  .clip(slider(0.58, 0.3, 1.1))
+  .distort(slider(0.12, 0, 0.45))
+  .room(0.18)
+  .gain(0.82)
+
+let pressure = roots.s("triangle")
+  .struct("~ ~ [~ x]")
+  .decay(0.34)
+  .sustain(0)
+  .lpf(sine.range(180, 760).slow(8))
+  .lpq(4)
+  .lpenv(3.8)
+  .clip(0.85)
+  .distort(0.22)
+  .delay(0.48)
+  .room(0.82)
+  .late(1/12)
+  .gain(0.26)
+
+let tape_hiss = s("~ ~ hh").bank("RolandTR808")
+  .hpf(5200)
+  .lpf(6900)
+  .decay(0.025)
+  .gain(0.045)
+  .room(0.55)
+
+let drop_echo = set(chords, s("square")
+  .struct("~ ~ x")
+  .decay(0.12)
+  .sustain(0)
+  .lpf(sine.range(520, 1450).slow(10))
+  .lpq(5)
+  .delay(0.72)
+  .room(0.95)
+  .gain(0.16)
+)
+
+let count_in = s("[hh]*3").bank("RolandTR808")
+  .hpf(2500)
+  .lpf(7000)
+  .decay(0.08)
+  .room(0.2)
+  .gain(0.38)
+
+$: arrange(
+  [4,          stack(sub, skank, drop_echo)],
+  [3,          stack(kick, sub, skank, rim, drop_echo)],
+  [1,          stack(kick, sub, skank, rim, count_in)],
+  [4294967296, stack(kick, ghost_kick, rim, hats, sub, pressure, skank, tape_hiss, drop_echo)],
+)
