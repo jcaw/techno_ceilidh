@@ -16,11 +16,11 @@ setCpm(129/3)
 
 let up     = n("[0 1 2]")
 let down   = n("[2 1 0]")
-let mixed  = n("[0 2 1]")
+let mixed  = n("[0 0 0]")
 
-let G_ = up.chord("G").voicing()
+let G_ = mixed.chord("G").voicing().transpose(-12)
 let C_ = mixed.chord("C").voicing()
-let D_ = down.chord("D").voicing()
+let D_ = mixed.chord("D").voicing()
 let Dm = up.chord("Dm").voicing()
 let Gm = mixed.chord("Gm").voicing()
 let A_ = down.chord("A").voicing()
@@ -31,32 +31,33 @@ let Bb = mixed.chord("Bb").voicing()
 let chords
 let roots
 if (part == 1) {
+  // 
   chords = cat(
-    [G_, C_, D_, G_],
-    [G_, [G_, C_], D_, G_],
-    [[G_, D_], G_, D_, G_],
-    [D_, G_, D_, G_],
+    G_, C_, D_, G_,
+    G_, C_, D_, G_,
+    D_, G_, D_, G_,
+    D_, G_, D_, G_,
   ).transpose(-12)
 
   roots = cat(
-    "g1 c1 d1 g1",
-    "g1 [g1 c1] d1 g1",
-    "[g1 d1] g1 d1 g1",
-    "d1 g1 d1 g1",
+    "g1", "c1", "d1", "g1",
+    "g1", "[g1 c1]", "d1", "g1",
+    "[g1 d1]", "g1", "d1", "g1",
+    "d1", "g1", "d1", "g1",
   ).note()
 } else {
   chords = cat(
-    [Dm, C_down, Bb, A_],
-    [Gm, F_, C_down, A_],
-    [Dm, Dm, Bb, A_],
-    [Gm, C_down, Dm, A_],
+    Dm, C_down, Bb, A_,
+    Gm, F_, C_down, A_,
+    Dm, Dm, Bb, A_,
+    Gm, C_down, Dm, A_,
   ).transpose(-12)
 
   roots = cat(
-    "d1 c1 bb0 a1",
-    "g1 f1 c1 a1",
-    "d1 d1 bb0 a1",
-    "g1 c1 d1 a1",
+    "d1", "c1", "bb0", "a1",
+    "g1", "f1", "c1", "a1",
+    "d1", "d1", "bb0", "a1",
+    "g1", "c1", "d1", "a1",
   ).note()
 }
 
@@ -94,19 +95,29 @@ let hats = s("~ hh ~").bank("RolandTR808")
   .room(0.28)
 
 let skank_bite = slider(0.41, 0, 1)
-let skank_voice = s("sawtooth")
+let skank_blend = slider(0.18, 0, 1)
+let skank_gain = slider(0.28, 0, 1)
+let make_skank = voice => set(chords, voice)
   .struct("~ x x")
-  .decay(0.15 - skank_bite * 0.1)
+  .decay(skank_bite.mul(-0.1).add(0.15))
   .sustain(0.0)
-  .lpf(sine.range(0.54, 1.46).slow(16).mul(300 + skank_bite * 900))
+  .lpf(sine.range(0.54, 1.46).slow(16).mul(skank_bite.mul(900).add(300)))
+  // Radio
+  .hpf(slider(0, 0, 1000))
   .lpq(3)
   .clip(0.65)
   .distort(0.28)
   .delay(0.45)
   .room(0.75)
-  .gain(0.28)
+  // FIXME: This was needed for sawtooth but square takes something different.
+  // .gain(skank_gain.add(skank_blend))
+  .gain(skank_gain)
 
-let skank = set(chords, skank_voice)
+let skank = xfade(
+  make_skank(s("sine")),
+  skank_blend,
+  make_skank(s("square")),
+)
 
 let sub = cat("g1").note().s("sine")
   .struct("x ~ [~ x]")
@@ -140,6 +151,7 @@ let tape_hiss = s("~ ~ hh").bank("RolandTR808")
   .gain(0.045)
   .room(0.55)
 
+  // TODO: We need to make this sound nicer and tie it in with the base notes
 let drop_echo = set(chords, s("square")
   .struct("~ ~ x")
   .decay(0.12)
@@ -162,5 +174,9 @@ $: arrange(
   [4,          stack(sub, skank, drop_echo)],
   [3,          stack(kick, sub, skank, rim, drop_echo)],
   [1,          stack(kick, sub, skank, rim, count_in)],
-  [4294967296, stack(kick, ghost_kick, rim, hats, sub, pressure, skank, tape_hiss, drop_echo)],
+  [4294967296, stack(kick, ghost_kick, 
+                    //  rim, hats, tape_hiss, 
+                     sub, pressure, skank, 
+                    //  drop_echo
+                    )],
 )
