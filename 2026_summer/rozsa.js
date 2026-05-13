@@ -157,14 +157,14 @@ let hats = s("~ hh ~").bank("RolandTR808")
 // ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 
-let skank_bite = slider(0.41, 0, 1)
-let skank_blend = slider(0.18, 0, 1)
-let skank_gain = slider(0.28, 0, 1)
+let skank_bite = slider(0.369, 0, 1)
+let skank_blend = slider(0.537, 0, 1)
+let skank_gain = slider(0.265, 0, 1)
 let make_skank = voice => set(chords, voice)
   .struct("~ x x")
   .decay(skank_bite.mul(-0.1).add(0.15))
   .sustain(0.0)
-  .lpf(sine.range(0.54, 1.46).slow(16).mul(skank_bite.mul(900).add(300)))
+  .lpf(sine.range(0.54, 1.00).slow(16).mul(skank_bite.mul(900).add(300)))
   // Radio
   .hpf(slider(0, 0, 1000))
   .lpq(3)
@@ -240,6 +240,14 @@ let count_in = s("[hh]*3").bank("RolandTR808")
   .room(0.2)
   .gain(0.38)
 
+let chops = note("e3 e3 e3").s("sawtooth").vowel("a i o").vibmod("0.1:2")
+  .fm(1)
+  .fmattack(".1")
+  .lpf(slider(816, 0, 2000))
+  .room(0.1)
+  .transpose([0, -12])
+  .clip(0.5).gain(0.5)
+
 
 /*
 
@@ -251,9 +259,19 @@ let count_in = s("[hh]*3").bank("RolandTR808")
 */
 
 $: arrange(
-  [4,          stack(sub, skank, drop_echo)],
-  [3,          stack(kick, sub, skank, rim, drop_echo)],
-  [1,          stack(kick, sub, skank, rim, count_in)],
+  [1,          stack(sub, skank.note("g1"), 
+                      // drop_echo
+                      )],
+  [3,          stack(sub, skank, 
+                      // drop_echo
+                      )],
+  [3,          stack(kick, sub, skank,
+                     // rim, 
+                     // drop_echo
+                     )],
+  [1,          stack(kick, sub, skank, 
+                     // rim, 
+                     chops)],
   [4294967296, stack(kick, ghost_kick, 
                     //  rim, hats, tape_hiss, 
                      sub, pressure, skank, 
