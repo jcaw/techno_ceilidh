@@ -1,21 +1,30 @@
-// The Borrowdale Exchange
-let part = 1
+//     ____                                    __      __        ______          __                         
+//    / __ )____  ______________ _      ______/ /___ _/ /__     / ____/  _______/ /_  ____ _____  ____ ____ 
+//   / __  / __ \/ ___/ ___/ __ \ | /| / / __  / __ `/ / _ \   / __/ | |/_/ ___/ __ \/ __ `/ __ \/ __ `/ _ \
+//  / /_/ / /_/ / /  / /  / /_/ / |/ |/ / /_/ / /_/ / /  __/  / /____>  </ /__/ / / / /_/ / / / / /_/ /  __/
+// /_____/\____/_/  /_/   \____/|__/|__/\__,_/\__,_/_/\___/  /_____/_/|_|\___/_/ /_/\__,_/_/ /_/\__, /\___/ 
+//                                                                                             /____/       
+//
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡏⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠣⢿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⢹⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⢠⣿⡆⠀⠀⢸⣿⠀⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⣀⣀⣀⣀⡀⢀⣾⣿⣿⡀⠀⢸⡿⠀⠀⣿⣇⣀⣀⣀⣀⣀⡀⣀⣀⣀⣀⣀⣀⠀⣿⣶⣿⠍⣿⣆⣀⣀⣀⣤⣀⢀⣀⣠⣶⣤⣠⣄⡀⠀⣿⡗⠀⣿⣆⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀
+// ⠛⠛⠛⢿⣷⣿⠿⠋⣿⣇⠀⣾⡇⠀⠀⠘⠛⠛⠛⠛⠛⡻⣿⣿⠛⠛⠛⠻⣿⣸⣿⣿⡏⠀⠙⠛⠛⠛⠛⠛⣿⣿⡿⠛⠻⣿⣿⣿⣿⣂⣿⠁⠀⠙⠛⠛⠛⠛⠛⠛⠛⠛⠿⣿⣾
+// ⠀⠀⠀⠀⠉⠉⠀⠀⢹⣿⠀⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠋⢿⣿⣸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣧⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+//
 
-// UNCOMMENT PART 2 THEN CLICK "update" TO SWITCH TO PART 2
+let part = 1
 // part = 2
 
-// Acid-house backing: 909 pulse, squelchy filter movement, melody-derived bass.
-
-
-/////////////////////////////////////////////////////
-//        _________
-//  _____/|_||_\`.__
-// |  _     AMB   _`-.
-// '-(_)--------(_)--'
-/////////////////////////////////////////////////////
-
 setCpm(54/4)
-
 
 let kick = s("[bd ~ ~ bd ~ ~]*4").bank("RolandTR909")
   .lpf(260)
@@ -25,6 +34,20 @@ let kick = s("[bd ~ ~ bd ~ ~]*4").bank("RolandTR909")
   .clip(1.18)
   .distort(0.16)
   .gain(0.95)
+  ._scope()
+// ⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⣾⠟⠩⠥⠀⠀⠀⢀⣀⣤⣤⣤⣤⠐⣤⣔                                         ⠀⠀⠀⠀⠀⠀⢱⣆⠀⠀⠀⠀⢳⠀
+// ⠠⢄⣰⢤⢥⢠⠀⠀⠀⠀⠀⠙⣤⣿⣿⣶⣾⣿⣿⣿⡿⠋⠉⠉⠉⠀                                         ⠀⠀⠀⠄⠀⠀⠀⠈⣿⣷⡀⠀⠀⠀⠀
+// ⠈⠲⠟⢘⣿⠹⠀⠀⠀⠀⡠⠊⣽⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀                                         ⠀⢠⠀⠀⠀⠀⢸⣿⣿⣷⣧⠀⠀⠀
+// ⠀⠀⠀⠀⡈⡀⠀⠀⠀⣠⣄⡘⠉⠹⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀                                         ⠀⠀⠀⠀⠀⡀⢠⣿⡟⣿⣿⣿⡇⠀⠀
+// ⠀⠀⠀⠀⠳⣸⣷⣤⣬⣰⠟⢿⣾⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀                                         ⠀⠀⠀⠀⠀⣳⣼⣿⡏⢸⣿⣿⣿⢀⠀
+// ⠀⠀⠀⠀⠀⡷⠀⠉⠉⠁⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⠆⠀⠀⠀                                         ⠀⠀⠀⠀⠀⠀⣰⣿⣿⡿⠁⢸⣿⣿⡟⣼⡆
+// ⠀⠀⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⢸⠿⠛⠛⠛⠿⠿⣿⣷⠀⠀⠀                                         ⠀⠀⠀⢰⢀⣾⣿⣿⠟⠀⠀⣾⢿⣿⣿⣿⣿
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⣼⠿⠿⡁⠀⠈⢣⠀⠀⠀                                         ⠀⠀⢸⣿⣿⣿⡏⠀⠀⠀⠃⠸⣿⣿⣿⡿
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠜⠀⢀⣤⠞⠁⠀⠀⠀⠀⠀⠀⠂⠀⠀                                         ⠀⠀⢳⣿⣿⣿⠀⠀⣄⠓⠂⠀⢹⣿⡿⡁
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠌⣠⣶⠟⠁⠀⠀⠀⠀⠀⠀⠢⠠⣼⡀⠀                                         ⠀⠀⠀⠹⣿⣿⡄⠀⣏⠈⡏⠀⢠⣿⡞⠁
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀                                         ⠀⠀⠀⠈⠛⢿⣄⠀⠛⠃⣠⠞⠋⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠠⣾⡞⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣼⣇⠀⠀⠀                                         ⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⣦⣼⣿⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀⢯⡭⣄⣀⠀
 
 let heartbeat = note("c5 ~ ~ c5 ~ ~").sound("square")
   .room(0.3)
@@ -33,56 +56,81 @@ let heartbeat = note("c5 ~ ~ c5 ~ ~").sound("square")
   .clip(1/2)
   .lpf(2000)
   .lpenv(slider(0.5, 0.5, 6))
+  ._scope()
 
 let full_notes
 if (part == 1) {
-  // The Seven Stars
+  // The Lilting Banshee
   full_notes = cat(
-    "d1 [g1 d1] [g1 e1 a1] d1",
-    "[g1 d1] [g1 a1] d1 d1",
-    "[a1 d1] [a1 d1] [e1 a1] [g1 d1]",
-    "[g1 d1] [g1 d1] [g1 a1] d1",
+    "a1 g1 e1 g1",
+    "a1 g1 e1 [g1 a1]",
+    "a1 g1 e1 g1",
+    "a1 g1 e1 [g1 a1]",
   ).note()
 } else {
-  // Dribbles of Brandy
+  // The Kesh
   full_notes = cat(
-    "e1 [g1 d1] b1 e1",
-    "g1 [d1 c1] e1 e1",
-    "e1 d1 [e1 b1] e1",
-    "d1 e1 [c1 e1] e1",
+    "g1 d1 c1 d1",
+    "g1 d1 [c1 g1] [d1 g1]",
+    "g1 d1 c1 d1",
+    "g1 d1 [c1 g1] [d1 g1]",
+    "g1 g1 g1 d1",
+    "g1 g1 [c1 a1] [d1 g1]",
+    "g1 g1 g1 d1",
+    "g1 g1 [c1 a1] [d1 g1]",
   ).note()
 }
 
-let bassline = full_notes.s("square").decay(0.18)
+let bassline = full_notes.s("supersaw").decay(0.3)
   .struct("[~ x x ~ x x]*4").slow(1)
-  .sustain(0)
-  .clip(1.4)
-  .distort(0.22)
-  .lpf(slider(420, 180, 2400))
-  .lpq(8)
-  .lpenv(slider(4.8, 1.2, 7))
-  .delay(0.12)
-  .gain(0.36)
-
-let acid = full_notes.s("sawtooth").decay(0.09)
-  .struct("[~ x ~ x ~ x ~ x]*4").slow(1)
-  .sustain(0)
-  .clip(0.8)
-  .distort(0.28)
-  .lpf(sine.range(260, 2200).slow(8))
-  .lpq(12)
-  .lpenv(5.4)
-  .delay(0.18)
-  .gain(0.16)
+  .clip(3)
+  .lpf(slider(347.6, 200, 2000))
+  .lpenv(slider(1.9056, 1.2, 6))
+  .gain(0.4)
+  ._scope()
 
 
-let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.3)
+// Acid-house backing: 909 pulse, squelchy filter movement, melody-derived bass.
+
+// let bassline = full_notes.s("square").decay(0.18)
+//   .struct("[~ x x ~ x x]*4").slow(1)
+//   .sustain(0)
+//   .clip(1.4)
+//   .distort(0.22)
+//   .lpf(slider(420, 180, 2400))
+//   .lpq(8)
+//   .lpenv(slider(4.8, 1.2, 7))
+//   .delay(0.12)
+//   .gain(0.36)
+
+// let acid = full_notes.s("sawtooth").decay(0.09)
+//   .struct("[~ x ~ x ~ x ~ x]*4").slow(1)
+//   .sustain(0)
+//   .clip(0.8)
+//   .distort(0.28)
+//   .lpf(sine.range(260, 2200).slow(8))
+//   .lpq(12)
+//   .lpenv(5.4)
+//   .delay(0.18)
+//   .gain(0.16)
+
+let chops = note("a3 a3 a3 a3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
+  .fm(1)
+  .fmattack(".1")
+  .lpf(slider(816, 0, 2000))
+  .room(0.1)
+  .transpose([0, -12])
+  .clip(0.5).gain(2)
+
 
 offset = 2 - 1/2
 $: arrange(
   [1,          stack(heartbeat)],
   [1,          stack(heartbeat, kick)],
-  [offset,     stack(kick, bassline, acid, heartbeat)],
-  [1/2,        stack(kick, bassline.late(1 + 1/2), acid.late(1 + 1/2), heartbeat, count_in.slow(1/2))],
-  [4294967296, stack(kick, bassline, acid, heartbeat.lpf(sine.range(200, 2000).slow(8)))],
+  [offset,     stack(kick, bassline, heartbeat)],
+  [1/2,        stack(kick, bassline.late(1 + 1/2), heartbeat, chops.slow(1/2))],
+  [4294967296, stack(kick, bassline, heartbeat.lpf(sine.range(200, 2000).slow(8)))],
+  // [offset,     stack(kick, bassline, acid, heartbeat)],
+  // [1/2,        stack(kick, bassline.late(1 + 1/2), acid.late(1 + 1/2), heartbeat, count_in.slow(1/2))],
+  // [4294967296, stack(kick, bassline, acid, heartbeat.lpf(sine.range(200, 2000).slow(8)))],
 )
