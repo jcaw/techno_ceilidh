@@ -99,14 +99,14 @@ let chops = note("d3 d3 d3 d3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
 
 
 let count_length = 1/2
-let kick_offset  = 2 - count_length
+let kick_offset  = 4 - count_length
 $: arrange(
   // Just dirty bass first
   [2,           stack(kick, bassline2)],
   // Bring in the rhythmic bass
   [kick_offset, stack(kick, bassline, bassline2, wobble)],
   // Count in - hacky offset, but it works
-  [count_length,stack(kick, bassline.late(1/2), bassline2.late(1/2), wobble.late(1/2), count_in.slow(1/2))],
+  [count_length,stack(kick, bassline.late(1/2), bassline2.late(1/2), wobble.late(1/2), chops.slow(1/2))],
   // And go
   [4294967296,  stack(kick, bassline, bassline2, wobble)],
 )
