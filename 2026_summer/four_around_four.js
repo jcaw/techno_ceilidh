@@ -56,6 +56,7 @@ if (part == 1) {
   ).note()
 }
 
+// TODO: Add a slider to this which adds kinda intense wobble distortion
 let bass_sub = full_notes.s("sine").decay(0.55)
   .struct("[~ x]*4").slow(1)
   .sustain(0)
@@ -64,28 +65,27 @@ let bass_sub = full_notes.s("sine").decay(0.55)
   .lpf(120)
   .gain(0.58)
 
-// TODO: This effect is interesting, let's duplicate it with a slider to fade it in when useful, but it's not the right sound. I want a more typical techno sound, something from outside this repo.
-let bass_mid = full_notes.s("square").decay(0.22)
-  .struct("[~ ~ ~ x ~ ~ x ~]*2").slow(1)
+let bass_mid = full_notes.s("sawtooth").decay(0.18)
+  .struct("[~ x ~ x ~ ~ x ~]*2").slow(1)
+  .sustain(0)
+  .clip(1.35)
+  .distort(slider(0.34, 0.05, 0.7))
+  .hpf(70)
+  .lpf(slider(560, 220, 1200))
+  .lpq(1.1)
+  .gain(0.44)
+
+let wub_wub = full_notes.s("square").decay(0.22)
+  .struct("[x x x x x x]*2").slow(1)
   .sustain(0)
   .clip(1.2)
   .distort(0.18)
-  .lpf(slider(360, 120, 1800))
+  .lpf(slider(120, 120, 1800))
   .lpq(6)
   .lpenv(slider(2.6, 0.8, 5))
   .gain(0.38)
 
-// let bass_mid = full_notes.s("square").decay(0.22)
-//   .struct("[x x x x x x]*2").slow(1)
-//   .sustain(0)
-//   .clip(1.2)
-//   .distort(0.18)
-//   .lpf(slider(360, 120, 1800))
-//   .lpq(6)
-//   .lpenv(slider(2.6, 0.8, 5))
-//   .gain(0.38)
-
-let bassline = stack(bass_sub, bass_mid)
+let bassline = stack(bass_sub, xfade(bass_mid, slider(0, 0, 1), wub_wub))
 
 let count_in = s("[hh]*4").bank("RolandTR909").lpf(1800).lpenv(0.5).decay(3).room(0.01).gain(0.3)
 
