@@ -35,7 +35,7 @@ let clean_bassline = raw_bassline
   //.lpenv(slider(2.656, 0.5, 6))
   .lpenv(sine.range(1.2, 4).slow(16))
   .gain(0.6)
-  .acidenv(slider(0.18, 0, 1))
+  // .acidenv(slider(0.18, 0, 1))
 
 let grosser_bassline = raw_bassline
   .sustain(0)
@@ -47,7 +47,7 @@ let grosser_bassline = raw_bassline
   .lpq(7)
   .lpenv(sine.range(2.2, 6).slow(16))
   .delay(0.11)
-  .gain(0.46)
+  .gain(0.3)
 
 let dry_to_wet = slider(0, 0, 1)
 let bassline = xfade(clean_bassline, dry_to_wet, grosser_bassline)
@@ -70,7 +70,7 @@ let wobble = full_notes.s("triangle").decay(0.26)
   .lpq(8)
   .lpenv(4.2)
   .room(0.35)
-  .gain(dry_to_wet.mul(0.26))
+  .gain(dry_to_wet.mul(0.14))
   ._scope()
 
 
@@ -89,12 +89,12 @@ let wobble = full_notes.s("triangle").decay(0.26)
 //   ._scope()
 
 
-let chops = note("d3 d3 d3 d3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
+let chops = note("f#3 d3 d3 d3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
   .fm(1)
   .fmattack(".1")
   .lpf(slider(816, 0, 2000))
   .room(0.1)
-  .transpose([0, -12])
+  .transpose([0, -12, 12, 24])
   .clip(0.5).gain(2)
 
 

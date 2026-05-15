@@ -18,7 +18,7 @@ let kick = s("[bd ~]*2").bank("RolandTR909")
   .gain(0.92)
   ._scope()
 
-let bassline = note("[~ [g1 g2]]*2").s("supersaw")
+let bassline = note("[~ [e1 e2]]*2").s("supersaw")
   .decay(0.4)
   .clip(0.8)
   .room(0.4)
@@ -30,42 +30,33 @@ let bassline = note("[~ [g1 g2]]*2").s("supersaw")
   .transpose([0, -12])
   ._scope()
 
-// TODO: Interesting but need to move it somewhere better probably
-// TODO: Change this into normal robot bleeps, at a steady pace, but with somewhat random notes (still along the scale though)
+// TODO: Maybe put in different song
 let robot_fade = slider(0, 0, 1)
-let robot_lpf = slider(1450, 180, 5600)
-let robot = stack(
-  note("[~ f#6] [c7 ~] [a5 eb6] ~ [g6 ~] [[b6 d7] ~] ~ e6").s("square")
-    .decay(0.035)
-    .sustain(0),
-  note("~ [bb4 ~] ~ [e5 g5] [~ c#5] ~ [f5 ~] ~").s("sine")
-    .decay(0.08)
-    .sustain(0)
-    .late(1/48),
-)
-  .slow(2)
+let robot_lpf = slider(200, 100, 2600)
+let robot = note("[e6 g6 b6 e7 d7 b6 d7 a6 f#6 d6 f#6 a6 a6 c#7 e7 c#7 b6 a6 g6 bb6 d7 g7 f#7 d7]").slow(2).s("square")
+  .decay(0.032)
+  .sustain(0)
   .lpf(robot_lpf)
-  .lpq(10)
-  .lpenv(2.8)
-  .clip(0.55)
-  .distort(0.08)
-  .delay(0.32)
-  .room(0.72)
-  .gain(robot_fade.mul(0.42))
+  .lpq(14)
+  .lpenv(4.6)
+  .clip(0.62)
+  .distort(0.16)
+  .room(0.08)
+  .gain(robot_fade.mul(0.38))
   ._scope()
 
 
-let chops = note("f3 f3 f3 f3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
+let chops = note("e3 g3 g3 g3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
   .fm(1)
   .fmattack(".1")
   .lpf(slider(816, 0, 2000))
   .room(0.1)
-  .transpose([0, -12])
+  .transpose([0, -12, 12, 24])
   .clip(0.5).gain(2)
 
 
 $: arrange(
-  [6,          stack(kick, bassline)],
-  [2,          stack(kick, bassline, chops.slow(2))],
+  [2,          stack(kick, bassline)],
+  [2,          stack(kick, bassline, chops.slow(1))],
   [4294967296, stack(kick, bassline, robot)],
 )

@@ -39,11 +39,11 @@ let full_notes
 if (part == 1) {
   // Galopede
   full_notes = cat(
-    "g1 g1 g1 g1",
-    "d1 d1 d1 d1",
-    "g1 g1 g1 g1",
-    "d1 d1 d1 d1",
-    "g1 g1 g1 g1",
+    "g1 e1 a1 d1",
+    "g1 e1 a1 g1",
+    "g1 g1 g1 d1",
+    "g1 g1 c1 g1",
+    "g1 g1 g1 d1",
     "g1 g1 g1 g1",
   ).note().slow(2)
 } else {
@@ -113,7 +113,9 @@ $: arrange(
   // 6 total for intro
   [1,   stack(whistle.gain(0.5))],
   [1,   stack()],
-  [5,   stack(kick, bassline)],
+  [2,   stack(kick, bassline.note("g1"))],
+  [2,   stack(kick, bassline.note("d1"))],
+  [1,   stack(kick, bassline.note("g1"))],
   [1,   stack(kick, bassline.late(offset), chops.slow(1/2))],
   [32,  stack(kick, hihat, bassline, whistle.gain(whistle_loudness))],
   // TODO: Replace all these following bars with manual control for the actual performance?

@@ -31,6 +31,9 @@ let full_notes = cat(
   "d1 e1 f#1 [g1 a1]",
 ).note()
 
+
+
+
 // TODO: More like a laser sound?
 let bassline = full_notes.s("square").decay(0.7)
   .struct("[~ x x ~ x x]*4").slow(1)
@@ -40,6 +43,7 @@ let bassline = full_notes.s("square").decay(0.7)
   //.lpenv(slider(2.656, 0.5, 6))
   .lpenv(sine.range(1.2, 4).slow(16))
   .gain(0.6)
+  .acidenv(slider(0.18, 0, 1))
 
 let bassline2 = full_notes.s("supersaw")
   .struct("[x x x x]")

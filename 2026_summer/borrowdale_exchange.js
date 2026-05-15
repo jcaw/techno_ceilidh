@@ -90,6 +90,9 @@ let bassline = full_notes.s("supersaw").decay(0.3)
   ._scope()
 
 
+// TODO: Ambulance ascii art
+
+
 // Acid-house backing: 909 pulse, squelchy filter movement, melody-derived bass.
 
 // let bassline = full_notes.s("square").decay(0.18)
@@ -114,21 +117,21 @@ let bassline = full_notes.s("supersaw").decay(0.3)
 //   .delay(0.18)
 //   .gain(0.16)
 
-let chops = note("a3 a3 a3 a3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
+let chops = note("a4 a3 a3 a3").s("sawtooth").vowel("a o i o").vibmod("0.1:2")
   .fm(1)
   .fmattack(".1")
   .lpf(slider(816, 0, 2000))
   .room(0.1)
-  .transpose([0, -12])
+  .transpose([0, -12, 12, 24])
   .clip(0.5).gain(2)
 
 
-offset = 2 - 1/2
+offset = 2 - 1
 $: arrange(
   [1,          stack(heartbeat)],
   [1,          stack(heartbeat, kick)],
   [offset,     stack(kick, bassline, heartbeat)],
-  [1/2,        stack(kick, bassline.late(1 + 1/2), heartbeat, chops.slow(1/2))],
+  [1,          stack(kick, bassline.late(1 + 1/2), heartbeat, chops.slow(1/2))],
   [4294967296, stack(kick, bassline, heartbeat.lpf(sine.range(200, 2000).slow(8)))],
   // [offset,     stack(kick, bassline, acid, heartbeat)],
   // [1/2,        stack(kick, bassline.late(1 + 1/2), acid.late(1 + 1/2), heartbeat, count_in.slow(1/2))],

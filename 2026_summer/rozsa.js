@@ -7,23 +7,23 @@
 //  ▀██▀  ▀██▀▄▀███▀▄▄██▄▄█▄▄██▀▄▀█▄██
 //
 //
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⢔⣒⠂⣀⣀⣤⣄⣀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⣴⣿⠋⢠⣟⡼⣷⠼⣆⣼⢇⣿⣄⠱⣄
-// ⠀⠀⠀⠀⠀⠀⠹⣿⡀⣆⠙⠢⠐⠉⠉⣴⣾⣽⢟⡰⠃
-// ⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣦⠀⠤⢴⣿⠿⢋⣴⡏⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⢸⡙⠻⣿⣶⣦⣭⣉⠁⣿⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠈⠉⠉⠉⠉⠇⡟⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⢀⠀⠀⣘⣦⣀⠀⠀⣀⡴⠊⠀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⢻⣿⣿⣿⣿⠻⣧⡀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠫⣿⠉⠻⣇⠘⠓⠂⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⣤⢔⣒⠂⣀⣀⣤⣄⣀⠀⠀
+// ⠀⠀⠀⠀⠀⠀  ⣴⣿⠋⢠⣟⡼⣷⠼⣆⣼⢇⣿⣄⠱⣄
+// ⠀⠀⠀⠀⠀⠀  ⠹⣿⡀⣆⠙⠢⠐⠉⠉⣴⣾⣽⢟⡰⠃
+// ⠀⠀⠀⠀⠀⠀  ⠀⠈⢿⣿⣦⠀⠤⢴⣿⠿⢋⣴⡏⠀⠀
+// ⠀⠀⠀⠀⠀⠀  ⠀⠀⢸⡙⠻⣿⣶⣦⣭⣉⠁⣿⠀⠀⠀
+// ⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⣷⠀⠈⠉⠉⠉⠉⠇⡟⠀⠀⠀
+// ⠀⠀⠀⠀  ⠀⠀⢀⠀⠀⣘⣦⣀⠀⠀⣀⡴⠊⠀⠀⠀⠀
+// ⠀⠀⠀⠀ ⠀⠀⠈⠙⠛⠛⢻⣿⣿⣿⣿⠻⣧⡀⠀⠀⠀
+// ⠀⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠈⠫⣿⠉⠻⣇⠘⠓⠂⠀⠀
+// ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀
 // ⢶⣾⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀
 // ⠀⠹⣿⣿⣿⣿⣿⣿⣿⣧⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀
 // ⠀⠀⠈⠙⠻⢿⣿⣿⠿⠛⣄⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡁⠀⠀⠀⠀⠀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀
-// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠘⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⣿⡁⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀
+// ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⣿
 //
 
 let part = 1
@@ -41,15 +41,15 @@ let mixed  = n("[0 0 0]")
 let G_ = mixed.chord("G").voicing().transpose(-12)
 let C_ = mixed.chord("C").voicing()
 let D_ = mixed.chord("D").voicing()
-let Am = mixed.chord("Am").voicing()
-let Em = mixed.chord("Em").voicing()
-let Bm = mixed.chord("Bm").voicing()
-let D7 = mixed.chord("D7").voicing()
-let Dm = up.chord("Dm").voicing()
+let Am = mixed.chord("Am").voicing().transpose(-12)
+let Em = mixed.chord("Em").voicing().transpose(-12)
+let Bm = mixed.chord("Bm").voicing().transpose(-12)
+let D7 = mixed.chord("D7").voicing().transpose(-12)
+let C_low = mixed.chord("C").voicing().transpose(-12)
+let Dm = mixed.chord("Dm").voicing()
 let Gm = mixed.chord("Gm").voicing()
-let A_ = down.chord("A").voicing()
-let F_ = up.chord("F").voicing()
-let C_down = down.chord("C").voicing()
+let A_ = mixed.chord("A").voicing()
+let F_ = mixed.chord("F").voicing()
 let Bb = mixed.chord("Bb").voicing()
 
 let chords
@@ -57,26 +57,26 @@ let roots
 if (part == 1) {
   // The Saturday Night Waltz
   chords = cat(
-    G_, C_, D_, G_,
-    G_, C_, D_, G_,
-    D_, G_, D_, G_,
-    D_, G_, D_, G_,
+    G_, G_, C_, C_, D_, D_, G_, G_,
+    G_, G_, C_, C_, D_, D_, G_, G_,
+    G_, D_, G_, G_, D_, D_, G_, G_,
+    G_, D_, G_, G_, D_, D_, G_, G_,
   ).transpose(-12)
 
   roots = cat(
-    "g1", "c1", "d1", "g1",
-    "g1", "c1", "d1", "g1",
-    "d1", "g1", "d1", "g1",
-    "d1", "g1", "d1", "g1",
+    "g1", "g1", "c1", "c1", "d1", "d1", "g1", "g1",
+    "g1", "g1", "c1", "c1", "d1", "d1", "g1", "g1",
+    "g1", "d1", "g1", "g1", "d1", "d1", "g1", "g1",
+    "g1", "d1", "g1", "g1", "d1", "d1", "g1", "g1",
   ).note()
 } else {
   // Dark Island
   chords = cat(
     // 3/4, one Strudel cycle per bar. Sheet is 32 bars: A A' B A'.
-    Am, Em, C_, G_, G_, Bm, Em, D_,
-    Am, Em, C_, G_, G_, D7, C_, G_,
-    G_, G_, C_, G_, G_, Bm, Em, D7,
-    Am, Em, C_, G_, G_, D7, C_, G_,
+    Am, Em, C_low, G_, G_, Bm, Em,    D_,
+    Am, Em, C_low, G_, G_, D7, C_low, G_,
+    G_, G_, C_low, G_, G_, Bm, Em,    D7,
+    Am, Em, C_low, G_, G_, D7, C_low, G_,
   ).transpose(-12)
 
   roots = cat(
@@ -240,12 +240,12 @@ let count_in = s("[hh]*3").bank("RolandTR808")
   .room(0.2)
   .gain(0.38)
 
-let chops = note("e3 e3 e3").s("sawtooth").vowel("a i o").vibmod("0.1:2")
+let chops = note("c3 g3 g3").s("sawtooth").vowel("a i o").vibmod("0.1:2")
   .fm(1)
   .fmattack(".1")
   .lpf(slider(816, 0, 2000))
   .room(0.1)
-  .transpose([0, -12])
+  .transpose([0, -12, 12, 24])
   .clip(0.5).gain(0.5)
 
 
@@ -258,6 +258,20 @@ let chops = note("e3 e3 e3").s("sawtooth").vowel("a i o").vibmod("0.1:2")
 
 */
 
+// TODO: Maybe extract these
+// $: stack(
+//   s("crackle*16")
+//     .density("<0.01 0.04 0.12 0.03>".slow(4))
+//     .gain(0.5)
+//     .hpf(1000)
+//     .lpf(10000),
+
+//   s("pink*16")
+//     .gain(0.015)
+//     .hpf(300)
+//     .lpf(4500)
+// )
+
 $: arrange(
   [1,          stack(sub, skank.note("g1"), 
                       // drop_echo
@@ -265,11 +279,11 @@ $: arrange(
   [3,          stack(sub, skank, 
                       // drop_echo
                       )],
-  [3,          stack(kick, sub, skank,
+  [2,          stack(kick, sub, skank,
                      // rim, 
                      // drop_echo
                      )],
-  [1,          stack(kick, sub, skank, 
+  [2,          stack(kick, sub, skank, 
                      // rim, 
                      chops)],
   [4294967296, stack(kick, ghost_kick, 
