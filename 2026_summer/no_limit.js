@@ -48,9 +48,8 @@ let raw_saw = s("[wt_comp:2,sawtooth!16]") // sine!16
 // ⠀⠀ ⠀⠉⠙⠫⠤⠚⠉⠀⠀⠀⠀⠉⠓⠤⠝⠋⠉
 
 let kick_energy = slider(1500, 0, 1500)
-// TODO: The duck is making the bass sound off-time so we need to lower it, and sweep it off as the bass sweeps out.
-//   Probably just use a shared slider for that.
-let kick = s("sbd!4").duck("3:4").duckdepth(1.).o(2).lpf(energy.mul(kick_energy))._scope()
+let max_duck = slider(0.8, 0, 1)
+let kick = s("sbd!4").duck("3:4").duckdepth(max_duck).o(2).lpf(energy.mul(kick_energy))._scope()
 // ⠀⠀⠀⢠⣾⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 // ⠀⠀⣰⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 // ⠀⢰⣿⣿⣿⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -119,5 +118,6 @@ $: arrange(
   [6,          stack(kick, bassline_verse)],
   [2,          stack(kick, bassline_verse, chops.slow(1))],
   [4294967296, stack(kick.lpf(cosine.range(100, kick_energy).slow(48)), 
-                     bassline_form.acidenv(cosine.range(0.85, 0.65).slow(48)))],
+                     bassline_form.acidenv(cosine.range(0.85, 0.65).slow(48))
+                       .duckdepth(cosine.range(0.1, max_duck).slow(48)))],
 )

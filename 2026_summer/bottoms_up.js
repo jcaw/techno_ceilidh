@@ -2,7 +2,7 @@
 let part = 1
 
 // UNCOMMENT PART 2 THEN CLICK "update" TO SWITCH TO PART 2
-part = 2
+// part = 2
 
 
 /////////////////////////////////////////////////////
